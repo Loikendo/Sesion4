@@ -41,11 +41,12 @@ public class Cuenta {
 	}
 
 	public void ingresar(double x) {
-		saldo=100;
+		saldo+=x;	
 	}
 	
 	public void retirar(double x) {
-		saldo=0;
+		if(saldo-x<-500)
+			saldo-=x;	
 	}
 
 }
