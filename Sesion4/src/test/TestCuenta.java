@@ -8,7 +8,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Clases.Cuenta;
+
 class TestCuenta {
+	
+	Cuenta c = new Cuenta();
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -20,6 +24,8 @@ class TestCuenta {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		c.setNumero("123");
+		c.setSaldo(0);
 	}
 
 	@AfterEach
@@ -27,16 +33,16 @@ class TestCuenta {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-	
 	public void testIngreso() {
-		assertEquals(100, Cuenta.ingresar(100));
+		
+		c.ingresar(100);
+		assertEquals(100, c.getSaldo());
 	}
 	
+	@Test
 	public void testRetirada() {
-		assertEquals(0, Cuenta.retirar(100));
+		c.retirar(100);
+		assertEquals(0, c.getSaldo());
 	}
 
 }
