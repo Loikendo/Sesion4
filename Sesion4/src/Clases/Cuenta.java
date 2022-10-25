@@ -44,9 +44,12 @@ public class Cuenta {
 		saldo+=x;	
 	}
 	
-	public void retirar(double x) {
-		if(saldo-x<-500)
-			saldo-=x;	
+	public void retirar(double x) throws Exception{
+		if(saldo-x>=-500)
+			saldo-=x;
+		else
+			throw new Exception("Fondos insuficientes (saldo: "+ saldo+") en la cuenta: "+numero);
+			
 	}
 
 }
